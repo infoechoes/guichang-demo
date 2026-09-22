@@ -435,7 +435,7 @@ class Handler(BaseHTTPRequestHandler):
                     raw=raw.replace(b'</head>',b'<meta name="gc-multiuser" content="true"></head>',1)
                     if getattr(runtime,'local_preview',False):raw=raw.replace(b'</head>',b'<meta name="gc-local-preview" content="true"></head>',1)
                 extra=None
-                if path=='/assets/price-lookup.html':
+                if path in ('/assets/price-lookup.html','/assets/price-batch.html'):
                     runtime.accounts.authenticate(self.session_token())
                     extra={'X-Frame-Options':'SAMEORIGIN','Content-Security-Policy':"frame-ancestors 'self'"}
                 return self.reply(200,raw,extra=extra,mime=mimetypes.guess_type(target.name)[0] or 'application/octet-stream')
@@ -472,7 +472,7 @@ class Handler(BaseHTTPRequestHandler):
             if method=='POST':
                 maximum=70_000_000 if path=='/api/workspace/image-draft' else 22_000_000 if path=='/api/recognize' else 16_000_000
                 if path.startswith(('/api/admin/','/api/login','/api/logout','/api/change-password')):maximum=16384
-                if path.startswith('/api/price-lookup/'):maximum=2048
+                if path.startswith('/api/price-lookup/'):maximum=16_000_000 if path.startswith('/api/price-lookup/batch/') else 2048
                 size=int(self.headers.get('Content-Length','0'))
                 if not 0<size<=maximum or self.headers.get('Transfer-Encoding') or self.headers.get('Content-Type','').split(';')[0]!='application/json':raise ValueError('请求格式或大小无效')
                 raw=self.rfile.read(size)

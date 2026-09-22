@@ -1,11 +1,14 @@
 """Read-only Maishou candidate lookup. Prices never imply verified SKU quotes."""
 import concurrent.futures,datetime,json,os,secrets,threading,time,urllib.request,urllib.parse
 from justone_lookup import JustOneLookup
+from pathlib import Path
+from price_batch_bridge import PriceBatchBridge
 VERSION='20260918.2'
 BASE='https://appapi.maishou88.com/api/'
 SOURCES={'jd':('京东','2'),'taobao':('淘宝/天猫','1')}
 class PriceLookup:
  def __init__(self,transport=None,justone_config=None):
+  self.batch=PriceBatchBridge(Path(justone_config).parent if justone_config else Path("multiuser-state"))
   self.justone=JustOneLookup(justone_config)
   self.transport=transport or self._http;self.lock=threading.RLock();self.items={};self.cache={};self.blocked={};self.slots=threading.BoundedSemaphore(3)
  def _http(self,url,data,form=False):
@@ -85,6 +88,7 @@ class PriceLookup:
    return result
   finally:self.slots.release()
  def dispatch(self,owner,path,data):
+  if path.startswith('/api/price-lookup/batch/'):return self.batch.dispatch(owner,path.rsplit('/',1)[-1],data)
   if path=='/api/price-lookup/xinfadi':return self.xinfadi(data)
   if path=='/api/price-lookup/search':return self.search(owner,data)
   if path=='/api/price-lookup/detail':return self.detail(owner,data)
