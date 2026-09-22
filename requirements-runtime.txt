@@ -1,0 +1,17 @@
+colorama==0.4.6
+et_xmlfile==2.0.0
+flatbuffers==25.12.19
+numpy==2.5.3
+onnxruntime==1.29.0
+opencv-python==5.0.0.93
+openpyxl==3.1.5
+packaging==26.3
+pillow==12.3.0
+protobuf==7.36.1
+pyclipper==1.4.0
+PyYAML==6.0.3
+rapidocr-onnxruntime==1.4.4
+shapely==2.1.2
+six==1.17.0
+tqdm==4.70.0
+xlrd==2.0.2

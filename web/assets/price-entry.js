@@ -1,0 +1,12 @@
+// Add an independent module to the deployed workbench without rebuilding its older source snapshot.
+(()=>{let active=false,button=null,panel=null,previous=null;
+const style=document.createElement('style');style.textContent='.gc-price-open #gc-order-panel,.gc-price-open #gc-invoice-panel,.gc-price-open #gc-quote-panel{display:none!important}.gc-price-open #gc-price-panel{display:block!important}#gc-price-panel[hidden]{display:none}#gc-price-panel iframe{width:100%;min-height:900px;border:0}#gc-price-tab[aria-selected="true"]{background:#175a78;color:white}';document.head.append(style);
+function close(target){if(active){const id=target||previous;for(const t of document.querySelectorAll('#gc-order-tab,#gc-invoice-tab,#gc-quote-tab'))t.setAttribute('aria-selected',String(t.id===id));}active=false;document.body.classList.remove('gc-price-open');if(panel)panel.hidden=true;if(button)button.setAttribute('aria-selected','false');}
+function attach(){const quote=document.getElementById('gc-quote-tab'),qp=document.getElementById('gc-quote-panel');if(!quote||!qp){close();if(panel)panel.remove();panel=null;button=null;return;}if(document.getElementById('gc-price-tab'))return;
+button=document.createElement('button');button.id='gc-price-tab';button.role='tab';button.textContent='查价';button.setAttribute('aria-controls','gc-price-panel');button.setAttribute('aria-selected','false');quote.after(button);
+panel=document.createElement('section');panel.id='gc-price-panel';panel.role='tabpanel';panel.setAttribute('aria-labelledby','gc-price-tab');panel.hidden=true;qp.after(panel);
+button.onclick=()=>{if(!active)previous=document.querySelector('#gc-order-tab[aria-selected="true"],#gc-invoice-tab[aria-selected="true"],#gc-quote-tab[aria-selected="true"]')?.id;for(const t of document.querySelectorAll('#gc-order-tab,#gc-invoice-tab,#gc-quote-tab'))t.setAttribute('aria-selected','false');active=true;document.body.classList.add('gc-price-open');panel.hidden=false;button.setAttribute('aria-selected','true');if(!panel.firstChild){const f=document.createElement('iframe');f.title='商品查价';f.src='/assets/price-lookup.html';panel.append(f);}};
+}
+document.addEventListener('click',e=>{const t=e.target.closest('#gc-order-tab,#gc-invoice-tab,#gc-quote-tab');if(t)close(t.id);});
+window.addEventListener('session-expired',()=>{close();if(panel)panel.replaceChildren();});
+new MutationObserver(attach).observe(document.getElementById('root'),{childList:true,subtree:true});attach();})();

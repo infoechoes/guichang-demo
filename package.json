@@ -1,0 +1,12 @@
+{
+  "name": "guichang-demo-integration",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:integration-ui": "esbuild web/assets/order-integration.jsx --jsx-factory=React.createElement --jsx-fragment=React.Fragment --format=esm --outfile=web/assets/order-integration.js"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  },
+  "version": "2026.9.22"
+}

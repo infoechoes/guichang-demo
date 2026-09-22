@@ -1,0 +1,517 @@
+[
+  {
+    "name": "pako",
+    "version": "1.0.11",
+    "file": "third-party-licenses/npm/pako-1.0.11/LICENSE"
+  },
+  {
+    "name": "fs-constants",
+    "version": "1.0.0",
+    "file": "third-party-licenses/npm/fs-constants-1.0.0/LICENSE"
+  },
+  {
+    "name": "lodash.flatten",
+    "version": "4.4.0",
+    "file": "third-party-licenses/npm/lodash.flatten-4.4.0/LICENSE"
+  },
+  {
+    "name": "process-nextick-args",
+    "version": "2.0.1",
+    "file": "third-party-licenses/npm/process-nextick-args-2.0.1/license.md"
+  },
+  {
+    "name": "path-is-absolute",
+    "version": "1.0.1",
+    "file": "third-party-licenses/npm/path-is-absolute-1.0.1/license"
+  },
+  {
+    "name": "duplexer2",
+    "version": "0.1.4",
+    "file": "third-party-licenses/npm/duplexer2-0.1.4/LICENSE.md"
+  },
+  {
+    "name": "lodash.groupby",
+    "version": "4.6.0",
+    "file": "third-party-licenses/npm/lodash.groupby-4.6.0/LICENSE"
+  },
+  {
+    "name": "lodash.union",
+    "version": "4.6.0",
+    "file": "third-party-licenses/npm/lodash.union-4.6.0/LICENSE"
+  },
+  {
+    "name": "playwright-core",
+    "version": "1.63.0",
+    "file": "third-party-licenses/npm/playwright-core-1.63.0/LICENSE"
+  },
+  {
+    "name": "playwright-core",
+    "version": "1.63.0",
+    "file": "third-party-licenses/npm/playwright-core-1.63.0/NOTICE"
+  },
+  {
+    "name": "lodash.isfunction",
+    "version": "3.0.9",
+    "file": "third-party-licenses/npm/lodash.isfunction-3.0.9/LICENSE"
+  },
+  {
+    "name": "bl",
+    "version": "4.1.0",
+    "file": "third-party-licenses/npm/bl-4.1.0/LICENSE.md"
+  },
+  {
+    "name": "core-util-is",
+    "version": "1.0.3",
+    "file": "third-party-licenses/npm/core-util-is-1.0.3/LICENSE"
+  },
+  {
+    "name": "rimraf",
+    "version": "2.7.1",
+    "file": "third-party-licenses/npm/rimraf-2.7.1/LICENSE"
+  },
+  {
+    "name": "crc32-stream",
+    "version": "4.0.3",
+    "file": "third-party-licenses/npm/crc32-stream-4.0.3/LICENSE"
+  },
+  {
+    "name": "balanced-match",
+    "version": "1.0.2",
+    "file": "third-party-licenses/npm/balanced-match-1.0.2/LICENSE.md"
+  },
+  {
+    "name": "base64-js",
+    "version": "1.5.1",
+    "file": "third-party-licenses/npm/base64-js-1.5.1/LICENSE"
+  },
+  {
+    "name": "buffer-crc32",
+    "version": "0.2.13",
+    "file": "third-party-licenses/npm/buffer-crc32-0.2.13/LICENSE"
+  },
+  {
+    "name": "once",
+    "version": "1.4.0",
+    "file": "third-party-licenses/npm/once-1.4.0/LICENSE"
+  },
+  {
+    "name": "lodash.isboolean",
+    "version": "3.0.3",
+    "file": "third-party-licenses/npm/lodash.isboolean-3.0.3/LICENSE"
+  },
+  {
+    "name": "crc-32",
+    "version": "1.2.2",
+    "file": "third-party-licenses/npm/crc-32-1.2.2/LICENSE"
+  },
+  {
+    "name": "string_decoder",
+    "version": "1.3.0",
+    "file": "third-party-licenses/npm/string_decoder-1.3.0/LICENSE"
+  },
+  {
+    "name": "safe-buffer",
+    "version": "5.2.1",
+    "file": "third-party-licenses/npm/safe-buffer-5.2.1/LICENSE"
+  },
+  {
+    "name": "compress-commons",
+    "version": "4.1.2",
+    "file": "third-party-licenses/npm/compress-commons-4.1.2/LICENSE"
+  },
+  {
+    "name": "inherits",
+    "version": "2.0.4",
+    "file": "third-party-licenses/npm/inherits-2.0.4/LICENSE"
+  },
+  {
+    "name": "iconv-lite",
+    "version": "0.7.3",
+    "file": "third-party-licenses/npm/iconv-lite-0.7.3/LICENSE"
+  },
+  {
+    "name": "async",
+    "version": "3.2.6",
+    "file": "third-party-licenses/npm/async-3.2.6/LICENSE"
+  },
+  {
+    "name": "setimmediate",
+    "version": "1.0.5",
+    "file": "third-party-licenses/npm/setimmediate-1.0.5/LICENSE.txt"
+  },
+  {
+    "name": "archiver",
+    "version": "5.3.2",
+    "file": "third-party-licenses/npm/archiver-5.3.2/LICENSE"
+  },
+  {
+    "name": "safer-buffer",
+    "version": "2.1.2",
+    "file": "third-party-licenses/npm/safer-buffer-2.1.2/LICENSE"
+  },
+  {
+    "name": "tar-stream",
+    "version": "2.2.0",
+    "file": "third-party-licenses/npm/tar-stream-2.2.0/LICENSE"
+  },
+  {
+    "name": "big-integer",
+    "version": "1.6.52",
+    "file": "third-party-licenses/npm/big-integer-1.6.52/LICENSE"
+  },
+  {
+    "name": "end-of-stream",
+    "version": "1.4.5",
+    "file": "third-party-licenses/npm/end-of-stream-1.4.5/LICENSE"
+  },
+  {
+    "name": "immediate",
+    "version": "3.0.6",
+    "file": "third-party-licenses/npm/immediate-3.0.6/LICENSE.txt"
+  },
+  {
+    "name": "minimist",
+    "version": "1.2.8",
+    "file": "third-party-licenses/npm/minimist-1.2.8/LICENSE"
+  },
+  {
+    "name": "playwright",
+    "version": "1.63.0",
+    "file": "third-party-licenses/npm/playwright-1.63.0/LICENSE"
+  },
+  {
+    "name": "playwright",
+    "version": "1.63.0",
+    "file": "third-party-licenses/npm/playwright-1.63.0/NOTICE"
+  },
+  {
+    "name": "brace-expansion",
+    "version": "1.1.21",
+    "file": "third-party-licenses/npm/brace-expansion-1.1.21/LICENSE"
+  },
+  {
+    "name": "lodash.difference",
+    "version": "4.5.0",
+    "file": "third-party-licenses/npm/lodash.difference-4.5.0/LICENSE"
+  },
+  {
+    "name": "util-deprecate",
+    "version": "1.0.2",
+    "file": "third-party-licenses/npm/util-deprecate-1.0.2/LICENSE"
+  },
+  {
+    "name": "lodash.isnil",
+    "version": "4.0.0",
+    "file": "third-party-licenses/npm/lodash.isnil-4.0.0/LICENSE"
+  },
+  {
+    "name": "ieee754",
+    "version": "1.2.1",
+    "file": "third-party-licenses/npm/ieee754-1.2.1/LICENSE"
+  },
+  {
+    "name": "bluebird",
+    "version": "3.4.7",
+    "file": "third-party-licenses/npm/bluebird-3.4.7/LICENSE"
+  },
+  {
+    "name": "minimatch",
+    "version": "3.1.5",
+    "file": "third-party-licenses/npm/minimatch-3.1.5/LICENSE"
+  },
+  {
+    "name": "lodash.isundefined",
+    "version": "3.0.1",
+    "file": "third-party-licenses/npm/lodash.isundefined-3.0.1/LICENSE.txt"
+  },
+  {
+    "name": "listenercount",
+    "version": "1.0.1",
+    "file": "third-party-licenses/npm/listenercount-1.0.1/LICENSE.md"
+  },
+  {
+    "name": "fstream",
+    "version": "1.0.12",
+    "file": "third-party-licenses/npm/fstream-1.0.12/LICENSE"
+  },
+  {
+    "name": "xmlchars",
+    "version": "2.2.0",
+    "file": "third-party-licenses/npm/xmlchars-2.2.0/LICENSE"
+  },
+  {
+    "name": "unzipper",
+    "version": "0.10.14",
+    "file": "third-party-licenses/npm/unzipper-0.10.14/LICENSE"
+  },
+  {
+    "name": "fs.realpath",
+    "version": "1.0.0",
+    "file": "third-party-licenses/npm/fs.realpath-1.0.0/LICENSE"
+  },
+  {
+    "name": "concat-map",
+    "version": "0.0.1",
+    "file": "third-party-licenses/npm/concat-map-0.0.1/LICENSE"
+  },
+  {
+    "name": "jszip",
+    "version": "3.10.2",
+    "file": "third-party-licenses/npm/jszip-3.10.2/LICENSE.markdown"
+  },
+  {
+    "name": "lie",
+    "version": "3.3.0",
+    "file": "third-party-licenses/npm/lie-3.3.0/license.md"
+  },
+  {
+    "name": "lodash.isplainobject",
+    "version": "4.0.6",
+    "file": "third-party-licenses/npm/lodash.isplainobject-4.0.6/LICENSE"
+  },
+  {
+    "name": "zip-stream",
+    "version": "4.1.1",
+    "file": "third-party-licenses/npm/zip-stream-4.1.1/LICENSE"
+  },
+  {
+    "name": "lodash.escaperegexp",
+    "version": "4.1.2",
+    "file": "third-party-licenses/npm/lodash.escaperegexp-4.1.2/LICENSE"
+  },
+  {
+    "name": "traverse",
+    "version": "0.3.9",
+    "file": "third-party-licenses/npm/traverse-0.3.9/LICENSE"
+  },
+  {
+    "name": "lodash.isequal",
+    "version": "4.5.0",
+    "file": "third-party-licenses/npm/lodash.isequal-4.5.0/LICENSE"
+  },
+  {
+    "name": "glob",
+    "version": "7.2.3",
+    "file": "third-party-licenses/npm/glob-7.2.3/LICENSE"
+  },
+  {
+    "name": "dayjs",
+    "version": "1.11.23",
+    "file": "third-party-licenses/npm/dayjs-1.11.23/LICENSE"
+  },
+  {
+    "name": "buffer-indexof-polyfill",
+    "version": "1.0.2",
+    "file": "third-party-licenses/npm/buffer-indexof-polyfill-1.0.2/LICENSE"
+  },
+  {
+    "name": "lazystream",
+    "version": "1.0.1",
+    "file": "third-party-licenses/npm/lazystream-1.0.1/LICENSE"
+  },
+  {
+    "name": "fast-csv",
+    "version": "4.3.6",
+    "file": "third-party-licenses/npm/fast-csv-4.3.6/LICENSE"
+  },
+  {
+    "name": "wrappy",
+    "version": "1.0.2",
+    "file": "third-party-licenses/npm/wrappy-1.0.2/LICENSE"
+  },
+  {
+    "name": "archiver-utils",
+    "version": "2.1.0",
+    "file": "third-party-licenses/npm/archiver-utils-2.1.0/LICENSE"
+  },
+  {
+    "name": "exceljs",
+    "version": "4.4.0",
+    "file": "third-party-licenses/npm/exceljs-4.4.0/LICENSE"
+  },
+  {
+    "name": "uuid",
+    "version": "8.3.2",
+    "file": "third-party-licenses/npm/uuid-8.3.2/LICENSE.md"
+  },
+  {
+    "name": "tmp",
+    "version": "0.2.7",
+    "file": "third-party-licenses/npm/tmp-0.2.7/LICENSE"
+  },
+  {
+    "name": "lodash.defaults",
+    "version": "4.2.0",
+    "file": "third-party-licenses/npm/lodash.defaults-4.2.0/LICENSE"
+  },
+  {
+    "name": "readdir-glob",
+    "version": "1.1.3",
+    "file": "third-party-licenses/npm/readdir-glob-1.1.3/LICENSE"
+  },
+  {
+    "name": "readable-stream",
+    "version": "3.6.2",
+    "file": "third-party-licenses/npm/readable-stream-3.6.2/LICENSE"
+  },
+  {
+    "name": "mkdirp",
+    "version": "0.5.6",
+    "file": "third-party-licenses/npm/mkdirp-0.5.6/LICENSE"
+  },
+  {
+    "name": "graceful-fs",
+    "version": "4.2.11",
+    "file": "third-party-licenses/npm/graceful-fs-4.2.11/LICENSE"
+  },
+  {
+    "name": "normalize-path",
+    "version": "3.0.0",
+    "file": "third-party-licenses/npm/normalize-path-3.0.0/LICENSE"
+  },
+  {
+    "name": "lodash.uniq",
+    "version": "4.5.0",
+    "file": "third-party-licenses/npm/lodash.uniq-4.5.0/LICENSE"
+  },
+  {
+    "name": "buffer",
+    "version": "5.7.1",
+    "file": "third-party-licenses/npm/buffer-5.7.1/LICENSE"
+  },
+  {
+    "name": "inflight",
+    "version": "1.0.6",
+    "file": "third-party-licenses/npm/inflight-1.0.6/LICENSE"
+  },
+  {
+    "name": "@types/node",
+    "version": "14.18.63",
+    "file": "third-party-licenses/npm/_types_node-14.18.63/LICENSE"
+  },
+  {
+    "name": "string_decoder",
+    "version": "1.1.1",
+    "file": "third-party-licenses/npm/string_decoder-1.1.1/LICENSE"
+  },
+  {
+    "name": "safe-buffer",
+    "version": "5.1.2",
+    "file": "third-party-licenses/npm/safe-buffer-5.1.2/LICENSE"
+  },
+  {
+    "name": "readable-stream",
+    "version": "2.3.8",
+    "file": "third-party-licenses/npm/readable-stream-2.3.8/LICENSE"
+  },
+  {
+    "name": "string_decoder",
+    "version": "1.1.1",
+    "file": "third-party-licenses/npm/string_decoder-1.1.1/LICENSE"
+  },
+  {
+    "name": "safe-buffer",
+    "version": "5.1.2",
+    "file": "third-party-licenses/npm/safe-buffer-5.1.2/LICENSE"
+  },
+  {
+    "name": "readable-stream",
+    "version": "2.3.8",
+    "file": "third-party-licenses/npm/readable-stream-2.3.8/LICENSE"
+  },
+  {
+    "name": "string_decoder",
+    "version": "1.1.1",
+    "file": "third-party-licenses/npm/string_decoder-1.1.1/LICENSE"
+  },
+  {
+    "name": "safe-buffer",
+    "version": "5.1.2",
+    "file": "third-party-licenses/npm/safe-buffer-5.1.2/LICENSE"
+  },
+  {
+    "name": "readable-stream",
+    "version": "2.3.8",
+    "file": "third-party-licenses/npm/readable-stream-2.3.8/LICENSE"
+  },
+  {
+    "name": "archiver-utils",
+    "version": "3.0.4",
+    "file": "third-party-licenses/npm/archiver-utils-3.0.4/LICENSE"
+  },
+  {
+    "name": "string_decoder",
+    "version": "1.1.1",
+    "file": "third-party-licenses/npm/string_decoder-1.1.1/LICENSE"
+  },
+  {
+    "name": "safe-buffer",
+    "version": "5.1.2",
+    "file": "third-party-licenses/npm/safe-buffer-5.1.2/LICENSE"
+  },
+  {
+    "name": "readable-stream",
+    "version": "2.3.8",
+    "file": "third-party-licenses/npm/readable-stream-2.3.8/LICENSE"
+  },
+  {
+    "name": "string_decoder",
+    "version": "1.1.1",
+    "file": "third-party-licenses/npm/string_decoder-1.1.1/LICENSE"
+  },
+  {
+    "name": "safe-buffer",
+    "version": "5.1.2",
+    "file": "third-party-licenses/npm/safe-buffer-5.1.2/LICENSE"
+  },
+  {
+    "name": "readable-stream",
+    "version": "2.3.8",
+    "file": "third-party-licenses/npm/readable-stream-2.3.8/LICENSE"
+  },
+  {
+    "name": "brace-expansion",
+    "version": "2.1.7",
+    "file": "third-party-licenses/npm/brace-expansion-2.1.7/LICENSE"
+  },
+  {
+    "name": "minimatch",
+    "version": "5.1.9",
+    "file": "third-party-licenses/npm/minimatch-5.1.9/LICENSE"
+  },
+  {
+    "name": "@fast-csv/parse",
+    "version": "4.3.6",
+    "file": "third-party-licenses/npm/_fast-csv_parse-4.3.6/LICENSE"
+  },
+  {
+    "name": "@fast-csv/format",
+    "version": "4.3.5",
+    "file": "third-party-licenses/npm/_fast-csv_format-4.3.5/LICENSE"
+  },
+  {
+    "name": "react",
+    "version": "19.2.0",
+    "file": "third-party-licenses/npm/react-19.2.0/LICENSE"
+  },
+  {
+    "name": "react-dom",
+    "version": "19.2.0",
+    "file": "third-party-licenses/npm/react-dom-19.2.0/LICENSE"
+  },
+  {
+    "name": "scheduler",
+    "version": "0.27.0",
+    "file": "third-party-licenses/npm/scheduler-0.27.0/LICENSE"
+  },
+  {
+    "name": "@phosphor-icons/react",
+    "version": "2.1.10",
+    "file": "third-party-licenses/npm/_phosphor-icons_react-2.1.10/LICENSE"
+  },
+  {
+    "name": "core-js",
+    "version": "3.33.0",
+    "file": "third-party-licenses/npm/core-js-3.33.0/LICENSE"
+  }
+]

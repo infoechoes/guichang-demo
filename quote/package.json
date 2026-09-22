@@ -1,0 +1,14 @@
+{
+  "name": "guichang-quote-portable",
+  "private": true,
+  "type": "module",
+  "version": "2026.9.17",
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "dependencies": {
+    "playwright": "1.63.0",
+    "iconv-lite": "0.7.3",
+    "exceljs": "4.4.0"
+  }
+}

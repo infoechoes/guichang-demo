@@ -1,0 +1,31 @@
+import fs from 'node:fs';import path from 'node:path';import os from 'node:os';import {spawn} from 'node:child_process';import {fileURLToPath} from 'node:url';
+const here=path.dirname(fileURLToPath(import.meta.url));
+const brands=[['晨光',/晨光|\bM\s*&\s*G\b/i],['得力',/得力|\bdeli\b/i],['罗技',/罗技|\blogitech\b/i],['惠普',/惠普|\bHP\b/i],['佳能',/佳能|\bCanon\b/i],['爱普生',/爱普生|\bEPSON\b/i],['兄弟',/兄弟|\bBrother\b/i],['联想',/联想|\bLenovo\b/i],['戴尔',/戴尔|\bDELL\b/i],['三星',/三星|\bSAMSUNG\b/i],['华为',/华为|\bHUAWEI\b/i],['小米',/小米|\bXiaomi\b/i],['农夫山泉',/农夫山泉/],['怡宝',/怡宝/],['百岁山',/百岁山/],['康师傅',/康师傅/],['玖龙氢',/玖龙氢/],["S'well",/\bs[’'\s]*well\b/i],['膳魔师',/膳魔师|\bTHERMOS\b/i],['象印',/象印|\bZOJIRUSHI\b/i],['公牛',/公牛/],['南孚',/南孚/],['清风',/清风/],['维达',/维达|\bVinda\b/i],['心相印',/心相印/],['洁柔',/洁柔/],['金士顿',/金士顿|\bKingston\b/i],['闪迪',/闪迪|\bSanDisk\b/i]];
+const instruction=/忽略.{0,12}(指令|要求)|系统提示|执行.{0,8}(命令|指令)|ignore\s+(previous|all)|system\s*prompt|https?:\/\//i;
+const field=(value='',evidence=[])=>({value,evidence,status:value?'candidate':'unknown'});
+export function extractProduct(tokens){
+ const clean=(Array.isArray(tokens)?tokens:[]).filter(t=>t&&typeof t.text==='string'&&Number.isFinite(t.confidence)).map(t=>({...t,text:t.text.trim()}));
+ const usable=clean.filter(t=>t.confidence>=0.8&&!instruction.test(t.text)),text=usable.map(t=>t.text).join('\n');
+ const find=re=>usable.filter(t=>re.test(t.text)).map(t=>t.text);
+ const hits=brands.filter(([,re])=>re.test(text));let brand=field();
+ if(hits.length===1)brand=field(hits[0][0],find(hits[0][1]));
+ else if(!hits.length){const explicit=text.match(/(?:品牌|商标)\s*[:：]\s*([^\s，,；;]{2,25})/);if(explicit)brand=field(explicit[1],[explicit[0]]);}
+ const modelValues=[...text.matchAll(/(?:^|[^A-Za-z0-9])([A-Za-z]{1,5}[- ]?\d{1,6}[A-Za-z]{0,3}|\d{2,5}[A-Za-z]{1,3})(?=$|[^A-Za-z0-9])/g)].map(m=>m[1].replace(' ','').toUpperCase()).filter(x=>!/^\d+(ML|MM|CM|GB|MB|TB|KG|PPB|MG|HZ|GHZ|V|W|L|G|M)$/i.test(x));
+ const explicitModels=[...text.matchAll(/型号\s*[:：]\s*([A-Za-z0-9][A-Za-z0-9._-]{1,35})/g)].map(m=>m[1]);
+ const models=[...new Set(explicitModels.length?explicitModels:modelValues)];
+ const specs=[...new Set([...text.matchAll(/\d+(?:\.\d+)?\s*(?:mL|ml|ML|毫升|升|L|mm|毫米|cm|厘米|GB|TB|kg|千克|克|g)(?![A-Za-z])/g)].map(m=>m[0]))];
+ const packs=[...new Set([...text.matchAll(/\d+\s*(?:瓶|支|个|包|卷|只|片|枚|盒)\s*(?:装|\/\s*(?:箱|盒|包))|[×x*]\s*\d+\s*(?:瓶|支|个|包|卷|只|片|枚)/gi)].map(m=>m[0]))];
+ const colors=[...new Set((text.match(/(?:黑|白|红|蓝|绿|灰|银|黄|墨蓝|透明)色/g)||[]))];
+ const categories=[...new Set((text.match(/保温(?:杯|瓶)|富氢水|矿泉水|饮用水|纯净水|中性笔|订书机|硒鼓|墨盒|鼠标|键盘|打印机|笔记本电脑|抽纸|卷纸|电池|插座/g)||[]))];
+ const fields={brand,model:field(models.length===1?models[0]:'',models),name:field(categories.length===1?categories[0]:'',categories),spec:field(specs.length===1?specs[0]:'',specs),color:field(colors.length===1?colors[0]:'',colors),pack:field(packs.length===1?packs[0]:'',packs)};
+ const warnings=[];if(!usable.length)warnings.push('没有读到足够清晰的文字。请上传标签特写或手动填写商品信息。');if(!brand.value)warnings.push(hits.length>1?'图片包含多个品牌，请选择目标商品。':'品牌未确认；本机文字识别不能仅凭外形判断品牌。');if(models.length>1)warnings.push('识别到多个型号，暂不自动选定。');if(specs.length>1)warnings.push('识别到多个规格数值，请选择实际商品规格。');if(packs.length>1||colors.length>1)warnings.push('图片包含多种包装或颜色，请核对。');if(clean.some(t=>t.confidence<0.8))warnings.push('部分文字清晰度不足，未自动用于搜索。');if(clean.some(t=>instruction.test(t.text)))warnings.push('图片中的指令或网址未作为搜索指令执行。');
+ const suggestedQuery=[brand.value,fields.model.value,fields.name.value,fields.spec.value,fields.color.value,fields.pack.value].filter(Boolean).join(' ');
+ return {fields,brandCandidates:hits.map(([name])=>name),tokens:clean,rawText:clean.map(t=>t.text).join('\n'),suggestedQuery,warnings,needsReview:true,recognitionKind:'label_ocr',engine:'本机 RapidOCR · 图片文字与规则提取',notice:'识别结果是搜索线索，不代表已经确认产品身份或完全同款。'};
+}
+export function ocrRuntime(){const python=process.env.GQ_OCR_PYTHON||path.join(os.homedir(),'.cache','codex-runtimes','codex-primary-runtime','dependencies','python','python.exe');const deps=process.env.GQ_OCR_DEPS||path.resolve(here,'../../work/gov-review-demo/python-deps');return {python,deps,available:fs.existsSync(python)&&fs.existsSync(path.join(deps,'rapidocr_onnxruntime','__init__.py'))};}
+export class ImageRecognition{
+ constructor({root,runtime=ocrRuntime(),runner}={}){this.root=root;this.runtime=runtime;this.runner=runner;this.busy=false;}
+ status(){return {available:this.runtime.available||!!this.runner,mode:'local_ocr',busy:this.busy,description:'识别图片上的文字；不上传图片到外部AI服务，不凭外形识别无标识商品。'};}
+ async recognize({id,rotation=0}={}){if(!/^[a-f0-9-]{36}$/.test(id||'')||![0,90,180,270].includes(rotation))throw Error('图片编号或旋转角度无效');if(this.busy)throw Error('正在识别另一张图片，请稍后');if(!this.status().available)throw Error('本机图片识别引擎未配置，请安装说明中的Python识别依赖');const file=path.join(this.root,'files',id);if(!fs.existsSync(file))throw Error('图片不存在，请重新上传');const bytes=fs.readFileSync(file);if(bytes.length>5*1024*1024)throw Error('图片超过5MB');this.busy=true;try{const raw=this.runner?await this.runner(bytes,rotation):await this.run(bytes,rotation);const meta=JSON.parse(fs.readFileSync(file+'.json','utf8'));return {...extractProduct(raw.tokens),image:{id,url:'/api/files/'+id,name:meta.name,rotation},recognizedAt:new Date().toISOString(),seconds:raw.seconds,width:raw.width,height:raw.height};}finally{this.busy=false;}}
+ run(bytes,rotation){return new Promise((resolve,reject)=>{const p=spawn(this.runtime.python,['-B',path.join(here,'image_ocr.py'),this.runtime.deps,String(rotation)],{windowsHide:true,stdio:['pipe','pipe','pipe']});let out='',done=false;const finish=(err,data)=>{if(done)return;done=true;clearTimeout(timer);err?reject(err):resolve(data);};const timer=setTimeout(()=>{p.kill();finish(Error('图片识别超过60秒，请缩小图片或截取商品标签后重试'));},60000);p.on('error',()=>finish(Error('本机识别引擎启动失败')));p.stdout.setEncoding('utf8');p.stdout.on('data',b=>{out+=b;if(out.length>1000000){p.kill();finish(Error('识别结果过大，请截取单个商品'));}});p.stderr.on('data',()=>{});p.stdin.on('error',()=>{});p.on('close',code=>{try{const lines=out.trim().split('\n'),raw=JSON.parse(lines.at(-1));if(code||raw.error||!Array.isArray(raw.tokens))throw Error();finish(null,raw);}catch{finish(Error('图片无法识别，请使用清晰的PNG、JPEG或WebP图片（不超过2400万像素）'));}});p.stdin.end(bytes);});}
+}

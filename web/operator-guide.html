@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>贵昌统一录单 · 操作员说明</title>
+<style>body{margin:0;background:#f5f7fa;color:#183048;font:16px/1.8 system-ui,"Microsoft YaHei",sans-serif}main{max-width:850px;margin:24px auto;padding:28px;background:white;border-radius:12px}h1{font-size:28px;margin:0}h2{font-size:21px;margin-top:28px}li{margin:10px 0}a{color:#185bbb}.note{background:#edf4ff;padding:12px 18px;border-radius:8px}small{color:#52677a}table{border-collapse:collapse;width:100%}th,td{border:1px solid #dce4ee;padding:10px;text-align:left}@media(max-width:600px){main{margin:0;padding:18px}}@media print{body{background:white}main{margin:0;max-width:none}a{color:inherit}}</style></head>
+<body><main><h1>贵昌统一录单 · 操作员说明</h1><small>试用构建 2026.09.15-r4 · 浏览器中可打印或另存为 PDF</small>
+<h2>首次在自己的电脑上使用</h2><ol>
+<li>连接公司与贵昌服务器相同的内网。只需 Windows 电脑和浏览器，无需安装 Codex、Python 或用友客户端，也不需要用友账号和接口密钥。</li>
+<li>从管理员取得“贵昌多人版-操作员试用.zip”和分配给你的个人账号。解压整个文件夹，双击 <strong>INSTALL-CERT.cmd</strong>，按照提示安装公开试用证书。已经安装过且没有证书告警的电脑无需重复安装。</li>
+<li>打开 <a href="/">/</a>，输入管理员分配的本程序账号和密码。不要填写用友 App Key / Secret。可将页面加入收藏夹。</li>
+<li>登录后先检查默认配置中的客户、组织、业务员和知识库。按公司要求使用个人密码；可在顶部“修改密码”修改。</li></ol>
+<p class="note">证书与访问地址由部署者提供。出现证书告警、地址无法打开或证书到期，请联系管理员处理，不要跳过告警继续录单。公司域名正式启用后，以管理员通知的新地址为准。</p>
+<h2>每次录单的流程</h2><ol>
+<li><strong>导入需求：</strong>在首页选择“图片”或“客户 Excel”。图片识别后核对商品编号、小数点、数量、单位、金额和备注中的配送地点。</li>
+<li><strong>选择配置：</strong>确认当前订单的客户和知识库；默认单据日期是今天，希望到货日期是明天，按实际业务修改。</li>
+<li><strong>匹配商品：</strong>点击“批量查询并更新默认价”。系统先匹配知识库，未找到候选再查用友。多个候选请核对规格后选择；未就绪商品可导出，已就绪商品可拆为独立子批次。</li>
+<li><strong>补充并保存草稿：</strong>按底部提示补充信息；单位不一致时，在报错旁点击“单位换算”，确认包装比例。离开前点“保存草稿”。草稿不会创建用友订单。</li>
+<li><strong>预览并确认：</strong>核对整单商品、数量、单价、金额和配送科室。预览后再明确点击“保存到用友”；保存成功后，如业务需要，再单独核对并提交。</li></ol>
+<h2>上传或替换共享知识库</h2><p>点击顶部“共享知识库”，上传最大 10MB 的 .xls / .xlsx。可选择最多 20 张工作表，合计最多 10000 行；逐表核对表头、商品编码、名称、规格、单位、价格和折扣。价格按实际表格口径处理，不统一打95折。</p>
+<p>上传同名文件并检查后，可选择新建知识库或替换已有同名库；有多个同名库时须选定目标。确认替换后，全员可选择新版本，原文件和旧订单版本保留。已有订单或配置引用旧库时不会自动改价，可在知识库选择处明确“改用新版”；需要长期使用时再保存默认配置。整理过程中可手动保存个人草稿，恢复后重新检查再发布。</p>
+<h2>遇到问题时</h2><table><thead><tr><th>情况</th><th>处理方式</th></tr></thead><tbody>
+<tr><td>批量查询限流</td><td>等待界面倒计时结束，点“手动继续未完成项”。不要连续重复查询。</td></tr>
+<tr><td>登录过期</td><td>在原页面用原账号重新登录可继续内存中的编辑；刷新或关页前仍需手动保存草稿。</td></tr>
+<tr><td>保存／提交结果不明</td><td>点“核查已有保存／提交结果”。只读核查原单，不重发订单。仍不能确定时联系管理员，勿复制新批次再次录入。</td></tr>
+<tr><td>忘记密码</td><td>联系管理员重置本程序密码；重置后所有设备需重新登录。</td></tr>
+<tr><td>其他问题</td><td>点顶部“复制问题信息”，把版本、问题编号和操作步骤交给管理员。不要发送密码或接口密钥。</td></tr></tbody></table>
+<p><a href="/">进入录单页面</a></p></main></body></html>

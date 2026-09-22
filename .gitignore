@@ -1,0 +1,17 @@
+node_modules/
+__pycache__/
+*.pyc
+.env
+.env.*
+.local-runtime/
+runtime/
+data/
+exports/
+local-state/
+*.sqlite*
+*.db
+*.log
+*.pem
+*.key
+projects.json
+justone.json
